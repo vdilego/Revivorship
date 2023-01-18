@@ -4,16 +4,14 @@ These are the instructions to replicate the paper entitled:
 
 - All data is downloaded from the Human Mortality Database. Add your username and password to download
 all the data used and follow instructions on the Rcode. If you still do not have a username register 
-at: https://www.mortality.org/
+at: https://www.mortality.org/. The life tables used were saved after downloaded and you can find them in teh folder
+Data/lifetables
 
-- Some functions are written on the very main Rcode file entitled DR_codes.R, but the main ones 
-are written on the file Functions_DR. You can also find specific instructions there.
+- Some functions are written on the very main Rcode file entitled Manuscript.R, but the main ones 
+are written on the file Functions.R. Figures for Appendix and exploration are in Manuscript.R, while 
+The file Figures.R contains the codes for the main Figures in the manuscript
 
-- The tables are in the folder Tables. They were written through the main code DR_codes.R but then
+- The tables are in the folder Tables. They were written through the main code Manuscript.R but then
 manually cleaned up and adapted. You can always check the manually adapted tables with the raw tables written
-by R, which are usually in the first sheet of the spreadsheet files.
+by R, which are usually in the first sheet of the spreadsheet files. 
 
-- In the file DR_codes.R
-you can find the codes for the figures named after the order in which they appear: "Fig.1., Fig.2,...Fig.,4".
-
-- 
