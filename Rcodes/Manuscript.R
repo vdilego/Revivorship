@@ -34,16 +34,17 @@ library(ggthemes)
 library(colorspace)
 library(cowplot)
 library(grid)
+library(magrittr)
 
 # Loading useful functions into environment
-source(here("Rcodes","Functions_DR.R"))
+source(here("Rcodes","Functions.R"))
 options(scipen=999)
 
 # creating directory folders where outputs are saved
 
 lt.folder  <- here("Data","lifetables")
 tau.folder  <- here("Data","tau")
-figs.folder <- here("Main","Figures")
+figs.folder <- here("Figures")
 figs.app.folder <- here("Appendix","Figures")
 
 # make in-out directories
@@ -82,37 +83,13 @@ LT_men<- ReadHMD(what = "LT_m",
 write.table(LT_men, here("Data","lifetables","lt_men.csv"),sep=",", row.names = F)
 
 
-# Life table closing at 90+ for Men
+# Reading life tables that we saved
 
-#lt_m<-LT_men#%>%
-#  group_by(country,Year) %>%
-#  mutate(dx=case_when(Age>=90~sum(dx[Age>=90], na.rm = T),TRUE~dx),
-#         Lx=case_when(Age>=90~sum(Lx[Age>=90], na.rm = T),TRUE~Lx),
-#         mx=dx/Lx)%>%
-#  filter(Age<=90) %>%
-# ungroup() %>%
-#  arrange(country,Year,Age) %>%
-#  group_by(country,Year) %>%
-#  group_modify(~life.table(.x$mx, sex="m"), .keep=T) %>%
-#  mutate(Age=0:90,
-#         Sex="m")%>%
-#  relocate(Age, .after = Year) %>%
-#  ungroup()
 
-# substitute the values in lx after age 90 with small numbers to be able to compute things
-# because in the comparison we have to compute the logs of differences if the lx is 0 than
-# values are not possible to be computed. This is a mere technical fact and does not affect
-# the estimates
 
-lt_f<- fread(here("Data","lifetables","lt_fem.csv")) #%>%
- # group_by(country,Year) %>%
-#  mutate_at(4:11, as.numeric) %>%
-#  mutate(lx=case_when(lx==0~ (lx+(0.01^10)),TRUE ~lx))
+lt_f<- fread(here("Data","lifetables","lt_fem.csv"))
 
 lt_m<-fread(here("Data","lifetables","lt_men.csv"))
- # group_by(country,Year) %>%
-#  mutate_at(4:11, as.numeric) %>%
- # mutate(lx=case_when(lx==0~ (lx+(0.01^10)),TRUE ~lx))
 
 
 # Combining both lifetables
@@ -353,21 +330,17 @@ p2<-ggplot(lt_ex0_trans%>% filter(Year>1800), aes(Year,ex,group=country, color=T
 fig1<-ggarrange(p2,p1, common.legend = F,nrow=2,font.label=list(color="black",size=16))
 fig1<-annotate_figure(fig1, left = textGrob(expression(paste("Life Expectancy at birth", ~ (e[0]))), rot = 90,
                                       vjust = 0.3, gp = gpar(cex = 1.5)))
+ggsave(here("Figures","fig1_ex.png"), width = 14, height = 8, units = "in", dpi=800)
 
-
-ggsave(here("Review","Review_2","Figures","fig1_ex.png"), width = 14, height = 8, units = "in", dpi=800)
 # saving also as pdf
 
-ggsave(here("Review","Review_2","Figures","fig1_ex.pdf"), width = 14, height = 8, units = "in", dpi=800)
-
+ggsave(here("Figures","fig1_ex.pdf"), width = 14, height = 8, units = "in", dpi=800)
 
 
 # ----------------------------------------------------------------------------
 # Figure that go into the appendix
 # after 1950, and also focusing on each country to show the patterns by group
 # ----------------------------------------------------------------------------
-# change things here to adopt the reading of dataset first
-#lt_ex0_trans<-fread(here("Data","Figures"))
 
 
 p1.app<-ggplot(lt_ex0_trans %>% filter(Year>1950), aes(Year,ex,group=country))+
@@ -570,11 +543,8 @@ lt_pioneer3<-lt_pioneer2 %>%
          res_abs=lx_New-lx_0)
 
 
-
-
-
 # putting everything in long format
-library(magrittr)
+
 
 res_long_pioneer<-lt_pioneer3 %>%
   group_by(country,Year,Sex) %>%
@@ -592,9 +562,6 @@ res_long_pioneer<-lt_pioneer3 %>%
 
 res_long_pioneer$i<-factor(res_long_pioneer$i, levels = c("1", "2", "3"),
                            labels = c("1", "2", "3+"))
-
-
-
 
 
 
@@ -660,12 +627,12 @@ ggplot()+
 
 #Figure for the main text pioneers countries
 
-Fig2.1<-ggplot()+
-  geom_jitter(data=res_p_lag%>%
+Fig2<-ggplot()+
+  geom_jitter(data=res_long_pioneer%>%
                 filter(Age<=89 & lambda>0),
               aes(Age,(res),color=i, group=country), size=3, alpha=0.1, color="grey80")+
 
-  geom_line(data=res_p_lag%>%
+  geom_line(data=res_long_pioneer%>%
               filter(country%in%c("Sweden","Italy") & Age<=89 & lambda>0),
             aes(Age,(res),color=i, linetype=Sex), size=2)+
   scale_color_manual(name="Revivorship times",values=c("#67001F","#D6604D", "#F4A582"))+
@@ -680,14 +647,6 @@ Fig2.1<-ggplot()+
   guides(linetype=guide_legend(keywidth = 3, keyheight = 1))+
   scale_x_continuous(breaks=c(0,15,30,45,60,75,90))+
   scale_y_continuous(breaks=c(0,5000,10000,15000,20000,25000,30000))
-
-#
-ggplot()+
- # geom_jitter(data=res_p_lag%>%
-#                filter(Age<=89 & lambda>0),
-#              aes(Age,(res),color=Sex, group=country,linetype=i), size=3, alpha=0.1, color="grey80")+
-
-
 
 # adding lambdas
 
@@ -744,7 +703,7 @@ Fig2_AP<-ggplot()+
 
 Fig2_AP
 
-ggsave(here("Review","Review_2","Figures","Fig2_AP.png"), width=45, height=20, units = "cm", dpi=400)
+ggsave(here("Appendix","Figures","Fig2_AP.png"), width=45, height=20, units = "cm", dpi=400)
 
 
 

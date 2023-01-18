@@ -74,7 +74,7 @@ res_max_age_c_table<-res_p_lag %>%
   select(-6) #%>%
   pivot_wider(id_cols = c(1:3), names_from = c(Sex,i), values_from = age_res)
 
-write.table(res_max_age_c_table, here("Review","Review_2","Tables","res_max_age.csv"), sep=",", row.names = F) # info for building Table 1.
+write.table(res_max_age_c_table, here("Tables","res_max_age.csv"), sep=",", row.names = F) # info for building Table 1.
 
 
 X11()
@@ -194,7 +194,7 @@ res_table_main_90<-res_p_lag %>%
   pivot_wider(id_cols = c(1:10), names_from = c(i), values_from = c(res,res_prop)) %>%
   arrange(country)
 
-write.table(res_table_main_90, here("Review","Review_2","Tables","res_table_main_90.csv"), sep=",", row.names = F) # info for building Table 1.
+write.table(res_table_main_90, here("Tables","res_table_main_90.csv"), sep=",", row.names = F) # info for building Table 1.
 
 
 fig_w<-ggplot()+
@@ -267,10 +267,10 @@ fig_w<-ggplot()+
 
 
 #
-ggsave(here("Review","Review_2","Figures","fig_w.png"), width = 33, height = 27, units = "cm", dpi=400)
+ggsave(here("Figures","fig_w.png"), width = 33, height = 27, units = "cm", dpi=400)
 #
 
-ggsave(here("Review","Review_2","Figures","fig_w.pdf"), width = 33, height = 27, units = "cm", dpi=400)
+ggsave(here("Figures","fig_w.pdf"), width = 33, height = 27, units = "cm", dpi=400)
 
 
 fig_m<-ggplot()+
@@ -332,7 +332,7 @@ fig_m<-ggplot()+
 #                  box.padding = 1.6)
 
 
-ggsave(here("Review","Review_2","Figures","fig_m.pdf"), width = 33, height = 27, units = "cm", dpi=400)
+ggsave(here("Figures","fig_m.pdf"), width = 33, height = 27, units = "cm", dpi=400)
 
 
 
@@ -347,12 +347,12 @@ annotate_figure(fig_b,
                 )
 
 # saving with higher resolution
-ggsave(here("Review","Review_2","Figures","fig_m.png"), width = 33, height = 27, units = "cm", dpi=400)
+ggsave(here("Figures","fig_m.png"), width = 33, height = 27, units = "cm", dpi=400)
 
 
 
 
-ggsave(here("Review","Review_2","Figures","fig_w.png"), width = 33, height = 27, units = "cm", dpi=400)
+ggsave(here("Figures","fig_w.png"), width = 33, height = 27, units = "cm", dpi=400)
 
 
 # now for the east transitioners and the fast-paced
@@ -473,9 +473,6 @@ annotate_figure(fig_b_ef,
 
 # with all
 
-
-
-
 fig_b_all<-ggpubr::ggarrange(fig_w,fig_m, fig_w_ef,fig_m_ef,common.legend = T, ncol = 1, legend = "bottom")
 
 annotate_figure(fig_b_all,
@@ -485,9 +482,9 @@ annotate_figure(fig_b_all,
 
 # saving the tables with the ages
 
-write.table(res_max_age_pl_wide, here("Review","Review_2","Tables","res_max_pl.csv"), sep=",", row.names = F)
+write.table(res_max_age_pl_wide, here("Tables","res_max_pl.csv"), sep=",", row.names = F)
 
-write.table(res_max_age_ef_wide, here("Review","Review_2","Tables","res_max_ef.csv"), sep=",", row.names = F)
+write.table(res_max_age_ef_wide, here("Tables","res_max_ef.csv"), sep=",", row.names = F)
 
 
 # wide format
