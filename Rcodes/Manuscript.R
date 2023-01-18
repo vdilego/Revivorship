@@ -4,7 +4,6 @@
 # author: Vanessa di Lego
 # Wittgenstein Centre for Demography and Global Human Capital(IIASA/OeAW/UniWien)
 # Vienna Institute of Demography at the Austrian Academy of Sciences
-# Vordere Zollamtstraße 3, 1030 Vienna, Austria
 # -----------------------------------------------------------------------------------------------------#
 
 
@@ -60,32 +59,30 @@ dir.create(figs.app.folder, showWarnings = FALSE, recursive = TRUE)
 
 
 # females
-LT_fem<- ReadHMD(what = "LT_f",
-                 countries = NULL,
-                 interval = "1x1",
-                 username = "email",
-                 password = "password",save = FALSE)$data
+#LT_fem<- ReadHMD(what = "LT_f",
+#                 countries = NULL,
+#                 interval = "1x1",
+#                 username = "email",
+#                 password = "password",save = FALSE)$data
 
 # saving life tables to make it easier later
 
-  write.table(LT_fem, here("Data","lifetables","lt_fem.csv"), sep=",",row.names = F)
+# write.table(LT_fem, here("Data","lifetables","lt_fem.csv"), sep=",",row.names = F)
 
 
 # males
-LT_men<- ReadHMD(what = "LT_m",
-                 countries = NULL,
-                 interval = "1x1",
-                 username = "email",
-                 password = "password",save = FALSE)$data
+#LT_men<- ReadHMD(what = "LT_m",
+#                 countries = NULL,
+#                 interval = "1x1",
+#                 username = "email",
+#                 password = "password",save = FALSE)$data
 
 # saving life tables to make it easier later
 
-write.table(LT_men, here("Data","lifetables","lt_men.csv"),sep=",", row.names = F)
+#write.table(LT_men, here("Data","lifetables","lt_men.csv"),sep=",", row.names = F)
 
 
 # Reading life tables that we saved
-
-
 
 lt_f<- fread(here("Data","lifetables","lt_fem.csv"))
 
@@ -127,28 +124,12 @@ lt_m_90<-lt_m%>%
   relocate(Age, .after = Year) %>%
   ungroup()
 
-#lt_f_90_ex_check<- lt_f_90 %>%
-#  group_by(country,Year,Sex) %>%
-#  filter(Age%in%0) %>%
-#  mutate(ex=round(ex,2)) %>%
-#  select(1,2,4,12)
-
-
-#lt_m_90_ex_check<- lt_m_90 %>%
-#  group_by(country,Year,Sex) %>%
-#  filter(Age%in%0) %>%
-# mutate(ex=round(ex,2)) %>%
-#  select(1,2,4,12)
-
-
 # selecting out some populations. Here we kept only England and Wales, instead of the UK,
 # because of the historical data available for use.
 
 lt_t<-rbind(lt_f,lt_m) %>%
   filter(!country%in%c("FRACNP","NZL_MA","NZL_NM","GBR_NP",
                        "GBRCENW","GBR_SCO","GBR_NIR"))
-
-
 
 # renaming countries
 lt_t$country <- factor(lt_t$country,
@@ -330,11 +311,11 @@ p2<-ggplot(lt_ex0_trans%>% filter(Year>1800), aes(Year,ex,group=country, color=T
 fig1<-ggarrange(p2,p1, common.legend = F,nrow=2,font.label=list(color="black",size=16))
 fig1<-annotate_figure(fig1, left = textGrob(expression(paste("Life Expectancy at birth", ~ (e[0]))), rot = 90,
                                       vjust = 0.3, gp = gpar(cex = 1.5)))
-ggsave(here("Figures","fig1_ex.png"), width = 14, height = 8, units = "in", dpi=800)
+#ggsave(here("Figures","fig1_ex.png"), width = 14, height = 8, units = "in", dpi=800)
 
 # saving also as pdf
 
-ggsave(here("Figures","fig1_ex.pdf"), width = 14, height = 8, units = "in", dpi=800)
+#ggsave(here("Figures","fig1_ex.pdf"), width = 14, height = 8, units = "in", dpi=800)
 
 
 # ----------------------------------------------------------------------------
@@ -567,6 +548,7 @@ res_long_pioneer$i<-factor(res_long_pioneer$i, levels = c("1", "2", "3"),
 
 # ----------------------------------------------------------------------------------------------------#
 # plot revivorship and survivorship differences for each country, then combining similar-transitions
+# this is only for exploration and appendix. Figures for the main draft are in the codes "Figures.R"
 # ----------------------------------------------------------------------------------------------------#
 
 # pioneer countries
@@ -671,9 +653,9 @@ l_swe<-ggplot(table_pioneer, aes(Age,(lambda)))+
 
 ggarrange(Fig2,l_swe, common.legend = F, ncol = 1)
 
-png(here(figs.folder, "Fig2.png"),"Fig2.png", units="in", width=12, height=10, res=300)
-ggarrange(Fig2,l_swe, common.legend = F, ncol = 1)
-dev.off()
+#png(here(figs.folder, "Fig2.png"),"Fig2.png", units="in", width=12, height=10, res=300)
+#ggarrange(Fig2,l_swe, common.legend = F, ncol = 1)
+#dev.off()
 
 table_pioneer_80<-lt_pioneer3 %>%
   filter(country%in%"Sweden" & Age%in%c(10,30,40,50,60,70,80)) %>%
@@ -703,7 +685,7 @@ Fig2_AP<-ggplot()+
 
 Fig2_AP
 
-ggsave(here("Appendix","Figures","Fig2_AP.png"), width=45, height=20, units = "cm", dpi=400)
+#ggsave(here("Appendix","Figures","Fig2_AP.png"), width=45, height=20, units = "cm", dpi=400)
 
 
 
@@ -925,9 +907,9 @@ l_ita<-ggplot(table_lag, aes(Age,(lambda)))+
 
 ggarrange(Fig3,l_ita, common.legend = F, ncol = 1)
 
-png(here(figs.folder, "Fig3.png"),"Fig3.png", units="in", width=12, height=10, res=300)
-ggarrange(Fig3,l_ita, common.legend = F, ncol = 1)
-dev.off()
+#png(here(figs.folder, "Fig3.png"),"Fig3.png", units="in", width=12, height=10, res=300)
+#ggarrange(Fig3,l_ita, common.legend = F, ncol = 1)
+#dev.off()
 
 
 table_lag90<-lt_laggards3 %>%
@@ -958,7 +940,7 @@ Fig3_AP<-ggplot()+
 
 Fig3_AP
 
-ggsave(here("Review","Review_2","Figures","Fig3_AP.png"), width=50, height=20, units = "cm", dpi=400)
+#ggsave(here("Review","Review_2","Figures","Fig3_AP.png"), width=50, height=20, units = "cm", dpi=400)
 
 #-----------------------------------------------------
 
@@ -1105,10 +1087,6 @@ ggplot()+
         plot.title = element_text(size = 12))+
   geom_vline(xintercept=50)
 
-
-
-
-
 # similar graphs to east
 # now with the prportions of res
 
@@ -1130,7 +1108,6 @@ ggplot()+
   theme(legend.position = "bottom",
         legend.title=element_text(size=12),
         plot.title = element_text(size = 12))
-
 
 
 # All East with Czechia highlighted
@@ -1157,9 +1134,9 @@ Fig4<-ggplot()+
   scale_y_continuous(breaks=c(0,5000,10000,15000,20000,25000,30000))
 
 Fig4
-png(here(figs.folder, "Fig4.png"),"Fig4.png", units="in", width=14, height=7, res=300)
-Fig4
-dev.off()
+#png(here(figs.folder, "Fig4.png"),"Fig4.png", units="in", width=14, height=7, res=300)
+#Fig4
+#dev.off()
 
 
 table_east<-lt_east3 %>%
@@ -1183,9 +1160,9 @@ l_cza<-ggplot(table_east, aes(Age,(lambda)))+
 
 ggarrange(Fig4,l_cza, common.legend = F, ncol = 1)
 
-png(here(figs.folder, "Fig4.png"),"Fig4.png", units="in", width=12, height=10, res=300)
-ggarrange(Fig4,l_cza, common.legend = F, ncol = 1)
-dev.off()
+#png(here(figs.folder, "Fig4.png"),"Fig4.png", units="in", width=12, height=10, res=300)
+#ggarrange(Fig4,l_cza, common.legend = F, ncol = 1)
+#dev.off()
 
 #All cases for the Appendix
 
@@ -1210,7 +1187,7 @@ Fig4_AP<-ggplot()+
 
 
 Fig4_AP
-ggsave(here("Review","Review_2","Figures","Fig4_AP.png"), width=50, height=20, units = "cm", dpi=400)
+#ggsave(here("Review","Review_2","Figures","Fig4_AP.png"), width=50, height=20, units = "cm", dpi=400)
 
 
 
@@ -1359,10 +1336,6 @@ ggplot()+
         plot.title = element_text(size = 12))+
   geom_vline(xintercept=50)
 
-
-
-
-
 # similar graphs to east
 # now with the prportions of res
 
@@ -1429,9 +1402,9 @@ l_jap<-ggplot(table_fast, aes(Age,(lambda)))+
 
 ggarrange(Fig5,l_jap, common.legend = F, ncol = 1)
 
-png(here(figs.folder, "Fig5.png"),"Fig5.png", units="in", width=12, height=10, res=300)
-ggarrange(Fig5,l_jap, common.legend = F, ncol = 1)
-dev.off()
+#png(here(figs.folder, "Fig5.png"),"Fig5.png", units="in", width=12, height=10, res=300)
+#ggarrange(Fig5,l_jap, common.legend = F, ncol = 1)
+#dev.off()
 
 
 #All cases for the Appendix
@@ -1458,12 +1431,17 @@ Fig5_AP<-ggplot()+
 
 Fig5_AP
 
-ggsave(here("Review","Review_2","Figures","Fig5_AP.png"), width=30, height=15, units = "cm", dpi=400)
+#ggsave(here("Review","Review_2","Figures","Fig5_AP.png"), width=30, height=15, units = "cm", dpi=400)
 
 
 #all cases look how?
 
 res_all_countries<-rbind(res_long_pioneer,res_long_lt_laggards,res_long_lt_east,res_long_lt_fast)
+
+# save for the figures files:
+
+#write.table(res_all_countries, here("Data","lifetables","res_all_countries.csv"),sep=",", row.names = F)
+
 
 View(res_all_countries)
 
@@ -1525,7 +1503,7 @@ Fig_all<-ggplot()+
   scale_y_continuous(breaks=c(0,5000,10000,15000,20000,25000,30000))
 Fig_all
 
-ggsave(here("Review","Review_2","Figures","Fig6_AP.png"), width=30, height=30, units = "cm", dpi=400)
+#ggsave(here("Appendix,"Figures","Fig6_AP.png"), width=30, height=30, units = "cm", dpi=400)
 
 # -----------------------------------------------------------------------------------------------------#
 # now estimating the tau´s, which are the number of life years expected to be lived in each revivorship
@@ -1590,13 +1568,13 @@ res_ex_main_long<-res_all_long2 %>%
   summarise(ex) %>%
   slice(n())
 
-write.table(res_tau, here("Review","Review_2","Tables","res_tau.csv"), sep=",", row.names = F) # info for building Table 1.
+#write.table(res_tau, here("Tables","res_tau.csv"), sep=",", row.names = F) # info for building Table 1.
 
-write.table(res_tau_main, here("Review","Review_2","Tables","res_tau_main.csv"), sep=",", row.names = F)
-write.table(res_ex_w, here("Review","Review_2","Tables","res_ex_birth.csv"), sep=",", row.names = F) # info for building Table 1.
+#write.table(res_tau_main, here("Tables","res_tau_main.csv"), sep=",", row.names = F)
+#write.table(res_ex_w, here("Tables","res_ex_birth.csv"), sep=",", row.names = F) # info for building Table 1.
 
-write.table(res_ex_main, here("Review","Review_2","Tables","res_ex_main.csv"), sep=",", row.names = F) # info for building Table 1.
-write.table(res_ex_main_long, here("Review","Review_2","Tables","res_ex_main_long.csv"), sep=",", row.names = F)
+#write.table(res_ex_main, here("Review","Review_2","Tables","res_ex_main.csv"), sep=",", row.names = F) # info for building Table 1.
+#write.table(res_ex_main_long, here("Review","Review_2","Tables","res_ex_main_long.csv"), sep=",", row.names = F)
 
 ##--------------------------------------------------------------------------------------------------------------------#
 # Estimating e-dagger and entropy for revivorship states. I compared my function with Alyson's formulae in
@@ -1640,7 +1618,7 @@ lt_H_i<-lt_t %>%
 
 lt_H_spans<-lt_H %>%
   group_by(country,Year,Sex) %>%
-  mutate(gain_1=round(ex*H_1,2),                      # this is actually equal to edagger. But I estimated to check
+  mutate(gain_1=round(ex*H_1,2),                      # this is actually equal to edagger for low mortality. But I estimated to check
          gain_2=round(ex*H_2,2),
          gain_3=round(ex*H_3,2),
          gain_4=round(ex*H_4,2),
@@ -1653,8 +1631,8 @@ lt_H_spans<-lt_H %>%
   filter(Age%in%0) %>%
   dplyr::select(-c(4:10))
 
-write.table(lt_H_spans, here("Data","tau","lifespan.csv"), sep=",", row.names = F) # info for building
-write.table(lt_H_spans, here("Review","Review_2","Tables","lifespan.csv"), sep=",", row.names = F) # info for building
+#write.table(lt_H_spans, here("Data","tau","lifespan.csv"), sep=",", row.names = F) # info for building
+#write.table(lt_H_spans, here("Review","Review_2","Tables","lifespan.csv"), sep=",", row.names = F) # info for building
 # ploting edagger and entropy
 
 
@@ -1807,7 +1785,7 @@ lt_H_gain<-lt_H_spans %>%
   separate(times, sep="_", into=c("times1","times2")) %>%
   dplyr::select(-6)
 
-View(lt_H_gain)
+#View(lt_H_gain)
 
 
 X11()
@@ -1926,10 +1904,9 @@ tab_gains<-lt_H_spans %>%
          & Year%in%c(1850,1900,1950,2017)) %>%
   arrange(country,Year,Sex)
 
-View(tab_gains)
 
-write.table(tab_gains, here("Data","tau","gains.csv"), sep=",", row.names = F) # info for building
-write.table(tab_gains, here("Review","Review_2","Tables","gains.csv"), sep=",", row.names = F)
+#write.table(tab_gains, here("Data","tau","gains.csv"), sep=",", row.names = F) # info for building
+#write.table(tab_gains, here("Tables","gains.csv"), sep=",", row.names = F)
 
 
 # tab gains for all countries
@@ -1938,8 +1915,8 @@ tab_gains_all<-lt_H_spans %>%
   filter(Year%in%c(1850,1900,1950,2000,2017)) %>%
   arrange(country,Year,Sex)
 
-View(tab_gains_all)
+#View(tab_gains_all)
 
-write.table(tab_gains, here("Data","tau","gains.csv"), sep=",", row.names = F) # info for building
-write.table(tab_gains, here("Review","Review_2","Tables","gains.csv"), sep=",", row.names = F)
-write.table(tab_gains_all, here("Review","Review_2","Tables","gains_all.csv"), sep=",", row.names = F)
+#write.table(tab_gains, here("Data","tau","gains.csv"), sep=",", row.names = F) # info for building
+#write.table(tab_gains, here("Tables","gains.csv"), sep=",", row.names = F)
+#write.table(tab_gains_all, here("Tables","gains_all.csv"), sep=",", row.names = F)
