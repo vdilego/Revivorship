@@ -1,0 +1,263 @@
+"country","Year","Sex","ex"
+"Australia",1950,"Women",71.72
+"Australia",1950,"Men",66.51
+"Australia",2000,"Women",82.27
+"Australia",2000,"Men",76.95
+"Australia",2017,"Women",84.81
+"Australia",2017,"Men",80.73
+"Belgium",1850,"Women",42.13
+"Belgium",1850,"Men",42.46
+"Belgium",1900,"Women",48.51
+"Belgium",1900,"Men",44.98
+"Belgium",1950,"Women",68.89
+"Belgium",1950,"Men",63.81
+"Belgium",2000,"Women",80.9
+"Belgium",2000,"Men",74.57
+"Belgium",2017,"Women",83.65
+"Belgium",2017,"Men",79
+"Canada",1950,"Women",70.58
+"Canada",1950,"Men",66.15
+"Canada",2000,"Women",81.77
+"Canada",2000,"Men",76.58
+"Canada",2017,"Women",84.11
+"Canada",2017,"Men",79.89
+"Switzerland",1900,"Women",48.94
+"Switzerland",1900,"Men",46.26
+"Switzerland",1950,"Women",71.09
+"Switzerland",1950,"Men",66.65
+"Switzerland",2000,"Women",82.56
+"Switzerland",2000,"Men",76.92
+"Switzerland",2017,"Women",85.36
+"Switzerland",2017,"Men",81.37
+"Denmark",1850,"Women",45.18
+"Denmark",1850,"Men",41.91
+"Denmark",1900,"Women",53.57
+"Denmark",1900,"Men",50.25
+"Denmark",1950,"Women",71.52
+"Denmark",1950,"Men",69.11
+"Denmark",2000,"Women",79.12
+"Denmark",2000,"Men",74.44
+"Denmark",2017,"Women",83.12
+"Denmark",2017,"Men",79.1
+"Finland",1900,"Women",43.24
+"Finland",1900,"Men",40.41
+"Finland",1950,"Women",67.92
+"Finland",1950,"Men",60.38
+"Finland",2000,"Women",81.02
+"Finland",2000,"Men",74.16
+"Finland",2017,"Women",84.22
+"Finland",2017,"Men",78.72
+"France",1850,"Women",44
+"France",1850,"Men",42.63
+"France",1900,"Women",46.95
+"France",1900,"Men",43.34
+"France",1950,"Women",69.19
+"France",1950,"Men",63.43
+"France",2000,"Women",82.8
+"France",2000,"Men",75.24
+"France",2017,"Women",85.35
+"France",2017,"Men",79.44
+"England & Wales",1850,"Women",43.66
+"England & Wales",1850,"Men",41.86
+"England & Wales",1900,"Women",48.25
+"England & Wales",1900,"Men",44.39
+"England & Wales",1950,"Women",71.31
+"England & Wales",1950,"Men",66.52
+"England & Wales",2000,"Women",80.37
+"England & Wales",2000,"Men",75.62
+"England & Wales",2017,"Women",83.2
+"England & Wales",2017,"Men",79.54
+"Norway",1850,"Women",51.28
+"Norway",1850,"Men",47.78
+"Norway",1900,"Women",55.14
+"Norway",1900,"Men",51.77
+"Norway",1950,"Women",73.25
+"Norway",1950,"Men",69.92
+"Norway",2000,"Women",81.37
+"Norway",2000,"Men",75.95
+"Norway",2017,"Women",84.28
+"Norway",2017,"Men",80.92
+"New Zealand",1950,"Women",71.24
+"New Zealand",1950,"Men",67.41
+"New Zealand",2000,"Women",81.21
+"New Zealand",2000,"Men",76.05
+"Sweden",1850,"Women",47.29
+"Sweden",1850,"Men",42.17
+"Sweden",1900,"Women",53.63
+"Sweden",1900,"Men",50.8
+"Sweden",1950,"Women",72.44
+"Sweden",1950,"Men",69.85
+"Sweden",2000,"Women",82.02
+"Sweden",2000,"Men",77.38
+"Sweden",2017,"Women",84.12
+"Sweden",2017,"Men",80.73
+"Austria",1950,"Women",67.28
+"Austria",1950,"Men",62.18
+"Austria",2000,"Women",81.09
+"Austria",2000,"Men",75.1
+"Austria",2017,"Women",83.9
+"Austria",2017,"Men",79.28
+"Chile",2000,"Women",79.93
+"Chile",2000,"Men",73.71
+"Chile",2017,"Women",82.25
+"Chile",2017,"Men",77.1
+"Germany",2000,"Women",80.99
+"Germany",2000,"Men",74.86
+"Germany",2017,"Women",83.29
+"Germany",2017,"Men",78.56
+"West Germany",2000,"Women",81.07
+"West Germany",2000,"Men",75.14
+"West Germany",2017,"Women",83.28
+"West Germany",2017,"Men",78.81
+"Spain",1950,"Women",64.16
+"Spain",1950,"Men",59.29
+"Spain",2000,"Women",82.85
+"Spain",2000,"Men",75.97
+"Spain",2017,"Women",85.67
+"Spain",2017,"Men",80.32
+"Greece",2000,"Women",81.18
+"Greece",2000,"Men",75.52
+"Greece",2017,"Women",83.75
+"Greece",2017,"Men",78.61
+"Ireland",1950,"Women",66.73
+"Ireland",1950,"Men",64.5
+"Ireland",2000,"Women",79.19
+"Ireland",2000,"Men",73.94
+"Ireland",2017,"Women",83.73
+"Ireland",2017,"Men",80.1
+"Iceland",1900,"Women",49.56
+"Iceland",1900,"Men",43.68
+"Iceland",1950,"Women",73.52
+"Iceland",1950,"Men",68.58
+"Iceland",2000,"Women",81.53
+"Iceland",2000,"Men",77.84
+"Iceland",2017,"Women",84.07
+"Iceland",2017,"Men",80.79
+"Israel",2000,"Women",80.92
+"Israel",2000,"Men",76.64
+"Italy",1900,"Women",41.98
+"Italy",1900,"Men",41.75
+"Italy",1950,"Women",67.43
+"Italy",1950,"Men",63.94
+"Italy",2000,"Women",82.5
+"Italy",2000,"Men",76.53
+"Italy",2017,"Women",84.86
+"Italy",2017,"Men",80.45
+"Luxembourg",2000,"Women",80.82
+"Luxembourg",2000,"Men",74.51
+"Luxembourg",2017,"Women",83.9
+"Luxembourg",2017,"Men",79.59
+"Netherlands",1900,"Women",49.9
+"Netherlands",1900,"Men",47.12
+"Netherlands",1950,"Women",72.59
+"Netherlands",1950,"Men",70.31
+"Netherlands",2000,"Women",80.56
+"Netherlands",2000,"Men",75.53
+"Netherlands",2017,"Women",83.32
+"Netherlands",2017,"Men",80.07
+"Portugal",1950,"Women",61.02
+"Portugal",1950,"Men",55.78
+"Portugal",2000,"Women",80.35
+"Portugal",2000,"Men",73.27
+"Portugal",2017,"Women",84.38
+"Portugal",2017,"Men",78.4
+"Taiwan",2000,"Women",79.24
+"Taiwan",2000,"Men",73.43
+"Taiwan",2017,"Women",83.29
+"Taiwan",2017,"Men",77.11
+"USA",1950,"Women",71.01
+"USA",1950,"Men",65.4
+"USA",2000,"Women",79.43
+"USA",2000,"Men",74.12
+"USA",2017,"Women",81.36
+"USA",2017,"Men",76.31
+"Bulgaria",1960,"Women",70.92
+"Bulgaria",1960,"Men",67.45
+"Bulgaria",2000,"Women",75.01
+"Bulgaria",2000,"Men",68.3
+"Bulgaria",2017,"Women",78.34
+"Bulgaria",2017,"Men",71.37
+"Belarus",1960,"Women",74.81
+"Belarus",1960,"Men",67.92
+"Belarus",2000,"Women",74.66
+"Belarus",2000,"Men",63.3
+"Belarus",2017,"Women",79.22
+"Belarus",2017,"Men",69.27
+"Czechia",1960,"Women",73.34
+"Czechia",1960,"Men",67.49
+"Czechia",2000,"Women",78.33
+"Czechia",2000,"Men",71.55
+"Czechia",2017,"Women",81.86
+"Czechia",2017,"Men",76.01
+"East Germany",1960,"Women",71.3
+"East Germany",1960,"Men",66.48
+"East Germany",2000,"Women",80.68
+"East Germany",2000,"Men",73.72
+"East Germany",2017,"Women",83.32
+"East Germany",2017,"Men",77.66
+"Estonia",1960,"Women",73.02
+"Estonia",1960,"Men",64.68
+"Estonia",2000,"Women",76.32
+"Estonia",2000,"Men",65.6
+"Estonia",2017,"Women",82.29
+"Estonia",2017,"Men",73.67
+"Croatia",2017,"Women",80.87
+"Croatia",2017,"Men",74.87
+"Hungary",1960,"Women",70.17
+"Hungary",1960,"Men",65.92
+"Hungary",2000,"Women",76.03
+"Hungary",2000,"Men",67.49
+"Hungary",2017,"Women",79.27
+"Hungary",2017,"Men",72.55
+"Lithuania",1960,"Women",73.02
+"Lithuania",1960,"Men",66.99
+"Lithuania",2000,"Women",77.37
+"Lithuania",2000,"Men",66.74
+"Lithuania",2017,"Women",80.37
+"Lithuania",2017,"Men",70.71
+"Latvia",1960,"Women",73.51
+"Latvia",1960,"Men",66.28
+"Latvia",2000,"Women",75.7
+"Latvia",2000,"Men",64.53
+"Latvia",2017,"Women",79.53
+"Latvia",2017,"Men",69.8
+"Poland",1960,"Women",70.63
+"Poland",1960,"Men",64.81
+"Poland",2000,"Women",77.93
+"Poland",2000,"Men",69.52
+"Poland",2017,"Women",81.54
+"Poland",2017,"Men",73.85
+"Russia",1960,"Women",72.31
+"Russia",1960,"Men",63.67
+"Russia",2000,"Women",72.23
+"Russia",2000,"Men",58.98
+"Slovakia",1960,"Women",72.53
+"Slovakia",1960,"Men",68.12
+"Slovakia",2000,"Women",77.3
+"Slovakia",2000,"Men",69
+"Slovakia",2017,"Women",80.58
+"Slovakia",2017,"Men",73.76
+"Slovenia",2000,"Women",79.74
+"Slovenia",2000,"Men",72.17
+"Slovenia",2017,"Women",83.68
+"Slovenia",2017,"Men",78.08
+"Ukraine",1960,"Women",73.8
+"Ukraine",1960,"Men",67.39
+"Ukraine",2000,"Women",73.52
+"Ukraine",2000,"Men",62.08
+"Hong Kong",2003,"Women",84.09
+"Hong Kong",2003,"Men",78.12
+"Hong Kong",2017,"Women",87.67
+"Hong Kong",2017,"Men",81.74
+"Japan",1950,"Women",60.88
+"Japan",1950,"Men",57.57
+"Japan",1975,"Women",76.88
+"Japan",1975,"Men",71.75
+"Japan",2003,"Women",85.25
+"Japan",2003,"Men",78.32
+"Japan",2017,"Women",87.26
+"Japan",2017,"Men",81.07
+"Korea",2003,"Women",80.71
+"Korea",2003,"Men",73.75
+"Korea",2017,"Women",85.77
+"Korea",2017,"Men",79.73

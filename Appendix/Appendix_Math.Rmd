@@ -1,0 +1,132 @@
+---
+title: "Appendix for Population Studies"
+fontsize: 12pt
+output:
+  bookdown::pdf_book:
+    toc: false
+bibliography: cheat.bib
+header-includes:
+   - \usepackage{float}
+   - \usepackage{amsmath}
+   - \usepackage{amssymb}
+   - \usepackage{nccmath}
+   - \usepackage{setspace}\doublespacing
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = T)
+```
+
+
+# Life table entropy in the revivorship model
+
+The life table entropy $H$ is a measure age heterogeneity with respect to age of death (or lifespan) and summary of the degree of concavity in an $\ell(x)$ column (Aburto et al. 2019; Demetrius 1979; Fernandez and Beltrán-Sánchez 2015; Keyfitz and Caswell 2005). Equations (10-14) in the main manuscript present the revivorship entropy $H_i$ and how the conventional life table entropy $H$ can be alternatively interpreted as the proportional increase in life expectancy at birth if everyone had their lives saved once (Vaupel and Yashin 1987a,b). In order to understand how this is possible, consider the case where we assume that those who are revived face the same risk as those who did not have their lives saved. This assumption can be relaxed, but considering this simple case helps to understand why conventional life table entropy can also be alternatively interpreted as the proportional increase in life expectancy at birth if everyone had their lives saved once. Let a proportional change $\delta(x)$ at age $x$ in the force of mortality. The new trajectory of $\mu^*$ changes from $\mu$ to $\mu^*(x)=(1-\delta(x))\mu(x)$, and the proportional change in life expectancy is expressed as:
+
+\begin{equation}
+\frac{\Delta e_0}{e_0}= \frac{\Delta e_0^*-e_0}{e_0} 
+\label{eq:ex_delta}
+\end{equation}
+
+Hence, considering that survival is defined as $\ell(x)=e^{-\int_{0}^{x}\mu(s)ds}$, (\ref{eq:ex_delta}) is then:
+
+\begin{equation}
+\frac{\int_{0}^{\omega}\ell(x) \left[e^{\int_{0}^{x}\delta(s)\mu(s)ds}-1\right] dx}{\int_{0}^{\omega}\ell(x) dx}
+\label{eq:ex_new}
+\end{equation}
+
+In the simplest case of a uniform change in mortality at all ages, $\delta(x)$ reduces to $\delta$ for all $x$ and the numerator of (\ref{eq:ex_delta}) also reduces to:
+
+\begin{equation}
+\frac{\int_{0}^{\omega}\ell(x) \left[e^{-\delta\ln l(x)}-1\right] dx}{\int_{0}^{\omega}\ell(x) dx}
+\label{eq:ex_unif}
+\end{equation}
+
+When $\delta$ is sufficiently small, $e^{-\delta\ln l(x)}-1$ in (\ref{eq:ex_unif}) approximates $-\delta\ln l(x)$, and:
+
+\begin{equation}
+\frac{\Delta e_0}{e_0} \approx \delta H
+\label{eq:ap_h}
+\end{equation}
+
+Where $H$ is the conventional life table entropy defined as (Aburto et al. 2019; Demetrius 1979; Fernandez and Beltrán-Sánchez 2015; Keyfitz and Caswell 2005):
+
+\begin{equation}
+H=-\frac{\int_{0}^{\omega}l(x)\ln l(x)dx}{\int_{0}^{\omega}l(x)dx}
+\label{eq:conv_h}
+\end{equation}
+
+In the case of revivorship, the difference is that now only a proportion $\delta$ of lives will be saved (or deaths averted). If we consider the simple case where lives are saved only once, then we will have a proportion $\ell(x)$ of survivors at age $x$ that have not been saved and a proportion $\ell(x)^{rev}$ who have been revived once. Then, the new survival in this population can be defined as:
+
+\begin{equation}
+\ell(x)^*=\ell(x)+\delta\ell(x)^{rev}
+\label{eq:lx_new}
+\end{equation}
+
+Consequently, life expectancy in this population will be $e_0^*=e_0+\delta \int_{0}^{\omega}\ell(x)^{rev}dx$ and we can express the relative change as:
+
+
+\begin{equation}
+\frac{\Delta e_0}{e_0}=\delta\frac{\int_{0}^{\omega}\ell(x)^{rev}dx}{\int_{0}^{\omega}\ell(x) dx}
+\label{eq:ex_new_delta}
+\end{equation}
+
+In the case that the revived are assumed to face the same mortality risk as those who are not revived, Vaupel and Yashin (1987a,b) showed that in this case the probability of survival to age $x$ of those who were revived at age $v$ is given by $P(T>x\mid v) = e^{-\int_{v}^{x}\mu(s)ds}$, with the density distribution of $v$ being $\mu(v)\ell(v)$, which allows to express $\ell(x)^{rev}$ as:
+
+\begin{equation}
+\ell(x)^{rev} = e^{-\int_{0}^{x}\mu(s)ds}\int_{0}^{x}\mu(v)dv = -l(x)\ln l(x)
+\label{eq:lx_new_delta}
+\end{equation}
+
+Using (\ref{eq:lx_new_delta}) as the definition of $\ell(x)^{rev}$ and substituting in (\ref{eq:ex_new_delta}) also yields $\delta H$, with $H=-\frac{\int_{0}^{\omega}l(x)\ln l(x)dx}{\int_{0}^{\omega}l(x)dx}$. Hence, entropy can be alternatively interpreted as the proportional increase in life expectancy at birth if everyone had their lives saved once, or had their first death averted (Vaupel and Yashin 1987b).
+
+
+## For $i$ revivals 
+
+The formulated above is relying on the the simple case where lives are saved only once. However, a more general formula was shown for $i$ times lives are saved, which is developed in the main manuscript, yielding the following (Equation (11) in the main manuscript): 
+
+\begin{equation}
+H_i= -\frac{\int_{0}^{\omega}l(x)(\ln l(x))^i/i!dx}{\int_{0}^{\omega}l(x)dx}
+\label{eq:h_i}
+\end{equation}
+
+(\ref{eq:h_i}) results from instead of considering the case where lives are saved only once, they can be saved $i$ times, which leads to a new life expectancy at birth $e_0^*$ that can be expressed in terms of the old life expectancy at birth $e_0$ and the life years lived in each revivorship state, defined as Vaupel and Yashin (1987a): 
+
+\begin{equation}
+\tau_i= \int_{0}^{\omega}l_i(x) dx = \int_{0}^{\omega}l(x)\Lambda(x)^i dx/i!
+\label{eq:tau}
+\end{equation}
+
+(\ref{eq:tau}) implies that (\ref{eq:ex_delta}) is in the revivorship setting then expressed as:
+
+\begin{equation}
+\frac{\Delta e_0}{e_0}= \frac{\sum_{i=0}^\infty \tau_i}{\int_{0}^{\omega}l(x) dx}
+\label{eq:ex_i_delta}
+\end{equation}
+
+Where in the case where the same proportion of deaths $\delta$ are averted at all ages:
+
+\begin{equation}
+\frac{\Delta e_0}{e_0}= \delta H_1+ \delta^{2}H_2+\delta^{3}H_3+...+\delta^{i}H_i+...
+\label{eq:change_i_rev}
+\end{equation}
+
+Following (\ref{eq:change_i_rev}) and the definition of $H$ presented in (\ref{eq:conv_h}), yields (\ref{eq:h_i}), which when $i=1$, reduces to (\ref{eq:conv_h}). Hence, (\ref{eq:h_i}) can be interpreted as the general case, and the conventional life table entropy defined in (\ref{eq:conv_h}) as the case where $i=1$, or when everyone's first death is averted.
+
+Likewise, If we consider (\ref{eq:h_i}) as the general case, it is also possible to provide an alternative interpretation to its numerator, the average number of life years lost as a result of death, defined as (Vaupel and Canudas-Romo 2003):
+
+\begin{equation}
+e^{\dagger}= -\int_{0}^{\omega}l(x)\ln l(x)dx
+\label{eq:ed}
+\end{equation}
+
+Similarly, we can define $e_i^{\dagger}$, as the general case or the numerator of (\ref{eq:h_i}):
+
+\begin{equation}
+e_i^{\dagger}= -\int_{0}^{\omega}l(x)(\ln l(x))^i/i! dx
+\label{eq:ed_i}
+\end{equation}
+
+Where if $i=1$, then (\ref{eq:ed_i}) reduces to (\ref{eq:ed}). In this case,$e_i^{\dagger}$ can be interpreted as the average number of potential life-years gained per life saved, or the expected number of years gained among those who were revived $i$ and only $i$ times. This idea was first discussed in Vaupel (1986), where he presents the lifesaving perspective of entropy. In this case, instead of interpreting entropy solely as the percentage change in life expectancy produced by a one percent reduction in the force of mortality at all ages, it can also be interpreted as the potential of increasing life expectancy by a reduction in the force of mortality (Vaupel 1986). As the potential gains from revival are related to the disparity in the distribution of length of life, this has some consequences. For example, even if the potential for saving life years is high at a specific age or a population, if little progress is being made in reducing mortality, then this potential will be lost. Gains are only translated into improvement if the potential is fulfilled. 
+
+
+
