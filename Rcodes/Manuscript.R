@@ -1,9 +1,6 @@
 # -----------------------------------------------------------------------------------------------------#
 # Codes for replicating the paper Who has been saved more? Trends in gender differences in mortality
 # through the revivorship approach.
-# author: Vanessa di Lego
-# Wittgenstein Centre for Demography and Global Human Capital(IIASA/OeAW/UniWien)
-# Vienna Institute of Demography at the Austrian Academy of Sciences
 # -----------------------------------------------------------------------------------------------------#
 
 
